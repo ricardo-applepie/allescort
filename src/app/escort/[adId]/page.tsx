@@ -5,15 +5,16 @@ import Link from 'next/link';
 import { Metadata } from 'next';
 
 interface Props {
-  params: { adId: string }; // This is fine
+  params: { adId: string };
 }
 
+// Next.js Metadata (optional)
 export const metadata: Metadata = {
   title: 'Escort Profile',
 };
 
 export default async function EscortPage({ params }: Props) {
-  const { adId } = params;
+  const { adId } = params; // Extract adId from params
 
   try {
     const adsSnapshot = await dbAdmin
