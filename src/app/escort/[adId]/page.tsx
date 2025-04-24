@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: 'Escort Profile',
 };
 
-export default async function EscortPage({ params }: Props) {
+export default async function EscortPage({ params }: any) {
   const { adId } = params; // Extract adId from params
 
   try {
