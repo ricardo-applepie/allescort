@@ -1,0 +1,72 @@
+@import "../../vairable";
+
+.escort-card {
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  }
+  &__img-wrapper {
+    // background-color: $primary;
+  }
+  &__img {
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.escort-card__new-tag {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: $primary; /* Red background */
+  color: white;
+  padding: 5px 10px;
+  font-weight: bold;
+  border-radius: 5px;
+  z-index: 10;
+  font-size: 14px;
+  animation: shake 1s ease-in-out infinite;
+}
+
+/* Animation for bouncing effect */
+@keyframes bounceIn {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-8px); /* Move slightly to the left */
+  }
+  50% {
+    transform: translateX(8px); /* Move slightly to the right */
+  }
+  75% {
+    transform: translateX(-5px); /* Move slightly left again */
+  }
+  100% {
+    transform: translateX(5px); /* Move slightly right */
+  }
+}
+
+.escort-card__img {
+  max-width: 100%;
+  height: auto; /* Ensure the aspect ratio is maintained */
+  max-height: 188px; /* Limit the height of the image */
+  object-fit: contain; /* Ensure the image covers the space without distorting */
+}

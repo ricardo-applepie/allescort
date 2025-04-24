@@ -1,0 +1,141 @@
+/* form.scss */
+
+/* Container for the form, centering it in the viewport */
+.form-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: white;
+}
+
+/* Inner form container */
+.form-inner {
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 20px;
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Title of the form */
+.form-title {
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Form styling */
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Input group (label + input) */
+.input-group {
+  margin-bottom: 16px;
+}
+
+.input-group label {
+  font-size: 0.875rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  outline: none;
+}
+
+.input-group input:focus {
+  border-color: rgb(185, 28, 28); /* Default red for input focus */
+}
+
+/* Button container */
+.button-group {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Submit button with default red color */
+.submit-button {
+  background-color: rgb(185, 28, 28); /* Default red */
+  color: white;
+  font-weight: bold;
+  padding: 12px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: rgb(155, 24, 24); /* Slightly darker shade of the default red on hover */
+}
+
+/* Loading text */
+.loading {
+  text-align: center;
+  color: #888;
+  margin-top: 10px;
+}
+
+/* Forgot password link */
+.forgot-password-link {
+  text-align: center;
+  font-size: 0.875rem;
+  color: rgb(185, 28, 28); /* Default red */
+  margin-top: 10px;
+  text-decoration: none;
+}
+
+.forgot-password-link:hover {
+  text-decoration: underline;
+}
+
+/* Additional links section */
+.additional-links {
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Create account and post ad links */
+.create-account-link,
+.post-ad-link {
+  background-color: rgb(185, 28, 28); /* Default red */
+  color: white;
+  font-weight: bold;
+  padding: 12px;
+  border-radius: 4px;
+  display: block;
+  text-decoration: none;
+  margin: 8px 0;
+}
+
+.create-account-link:hover,
+.post-ad-link:hover {
+  background-color: rgb(155, 24, 24); /* Darker red for hover */
+}
+
+/* Separator between links */
+.or-text {
+  margin: 10px 0;
+  font-size: 0.875rem;
+}
+
+/* Footer text */
+.footer-text {
+  text-align: center;
+  font-size: 0.75rem;
+  color: #aaa;
+  margin-top: 20px;
+}

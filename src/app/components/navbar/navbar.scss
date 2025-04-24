@@ -1,0 +1,64 @@
+@import "../../vairable";
+
+.navbar {
+  &__banner {
+    background-color: $primary;
+    padding: 10px;
+    text-align: center;
+    color: $white;
+    font-size: 1rem; 
+    @media screen and (min-width: 768px)  {
+      font-size: 1.5rem;
+    }
+  }
+  &__link {
+    color: $black;
+    font-size: 2rem; 
+    @media screen and (min-width: 768px)  {
+      font-size: 2rem;
+    }
+  }
+  &__input {
+    display: block;
+    width: 100%;
+    padding: 12px 25px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: $white;
+    background-color: $primary;
+    background-clip: padding-box;
+    border: 1px solid transparent;
+    border-top-left-radius: 100px; /* Top-left corner radius */
+    border-bottom-left-radius: 100px; /* Bottom-left corner radius */    
+    height: unset;
+    ::placeholder {
+      color: $white;
+    }
+  }
+  &__search-icon {
+    position: relative;
+    // right: 25px;
+    // top: 50%;
+    // transform: translateY(-50%);
+    border-top-right-radius: 100px; /* Top-left corner radius */
+    border-bottom-right-radius: 100px; /* Bottom-left corner radius */  
+    width: 50px;
+    background-color: $primary;
+    cursor: pointer;
+    svg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      path {
+        fill: #fff;
+      }
+    }
+  } 
+  &__search {
+    position: relative;
+    flex-grow: 2;
+    max-width: 550px;
+    border-radius: 50px;
+}
+}

@@ -1,0 +1,124 @@
+/* profile-category.scss */
+
+/* Animations */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Global Styles */
+body {
+  background-color: #f9fafb;
+  font-family: 'Inter', sans-serif;
+  color: #333;
+}
+
+.diamond_profile_card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.diamond_profile_card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.diamond_package_contentbox {
+  padding: 24px;
+}
+
+.diamond_profile_section {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.diamond_profile_card img {
+  border-radius: 10px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.diamond_profile_card h4 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 16px;
+}
+
+.diamond_profile_card p {
+  color: #6b7280;
+}
+
+.diamond_profile_card ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.diamond_profile_card ul li {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #4b5563;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.diamond_profile_card ul li i {
+  color: #10b981;
+}
+
+.diamond_profile_section label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.diamond_profile_section input[type="radio"] {
+  accent-color: #10b981;
+}
+
+.diamond_profile_section .diamond_package_option {
+  padding: 16px;
+  border-radius: 8px;
+  background: #f3f4f6;
+  border: 1px solid #e5e7eb;
+  transition: all 0.3s ease;
+}
+
+.diamond_profile_section input[type="radio"]:checked + .diamond_package_option {
+  background-color: #10b981;
+  color: white;
+}
+
+.diamond_profile_section .diamond_package_option p {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.diamond_profile_section .text-md {
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+.diamond_profile_section .diamond_package_option:hover {
+  background-color: #e5e7eb;
+}
+
+.diamond_profile_card .text-sm {
+  font-size: 0.875rem;
+}
+
+.diamond_profile_card .text-gray-500 {
+  color: #6b7280;
+}

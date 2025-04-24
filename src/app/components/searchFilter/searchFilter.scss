@@ -1,0 +1,35 @@
+@import "../../vairable";
+
+.escort-count {
+  color: $primary;
+}
+
+.escort-overview { 
+  background-color: $grey;
+  padding: 1rem 0.6rem;
+  border: solid $contentsection-border-color;
+}
+
+.search__form {
+  @apply p-6 bg-white rounded-lg shadow-lg;
+}
+
+.escort-overview {
+  @apply mt-4 p-4 rounded-lg shadow-md bg-gray-200 flex justify-between items-center;
+}
+
+.escort-count {
+  @apply text-primary text-lg font-semibold;
+}
+
+.escort-overview div {
+  @apply text-lg font-semibold;
+}
+
+.search__form input, .search__form button {
+  @apply rounded-lg shadow-sm;
+}
+
+button {
+  @apply bg-primary hover:bg-primary-dark text-white transition-all;
+}
