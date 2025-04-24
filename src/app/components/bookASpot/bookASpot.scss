@@ -26,17 +26,15 @@
       height: 100%;
       
       .card-text {
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        background-color: rgba(0, 0, 0, 0.6);
-        color: white;
-        padding: 0.5rem;
-        font-weight: bold;
+        position: relative;
+        top: -49px;
+        background-color: rgba(0, 0, 0, .6);
+        color: #fff;
+        padding: .5rem;
+        font-weight: 700;
         text-align: center;
         width: 100%;
-        font-size: 0.875rem;
+        font-size: .875rem;
         white-space: nowrap;
       }
     }
