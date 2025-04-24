@@ -7,6 +7,7 @@ import { setMenuState } from '@/redux/menu/menu';
 
 const SlideInMenu = () => {
   const { isOpen } = useSelector((state) => state.menuState);
+  console.log(isOpen, "isOpen")
   const dispatch = useDispatch();
 
   useEffect(() => {
