@@ -16,23 +16,23 @@ interface SearchProps {
 
 export default function SearchPage() {
   
-  const searchParams = useSearchParams(); 
-  const searchQuery = searchParams.get('city') || ""; 
-  const [listings, setListings] = useState([]);
-  const dispatch = useDispatch<AppDispatch>();
+  // const searchParams = useSearchParams(); 
+  // const searchQuery = searchParams.get('city') || ""; 
+  // const [listings, setListings] = useState([]);
+  // const dispatch = useDispatch<AppDispatch>();
 
-  useEffect(() => {
-    const encodedSearchKeyword = encodeURIComponent(searchQuery);
-    dispatch(setSearchQueryCity(encodedSearchKeyword));
-    dispatch(fetchListings())
-  }, []);
+  // useEffect(() => {
+  //   const encodedSearchKeyword = encodeURIComponent(searchQuery);
+  //   dispatch(setSearchQueryCity(encodedSearchKeyword));
+  //   dispatch(fetchListings())
+  // }, []);
 
   return (
     <main className="flex flex-col h-full max-w-7xl mx-auto px-5 md:px-10">
       <section>
-        <SearchFilter 
-        />
-        <Listings listings={listings} />
+        {/* <SearchFilter 
+        /> */}
+        {/* <Listings listings={listings} /> */}
       </section>
     </main>
   );
