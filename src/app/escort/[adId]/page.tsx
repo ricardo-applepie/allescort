@@ -30,6 +30,7 @@ export default async function EscortPage({ params }: any) {
         ...data,
         boostedAt: '',
         createdAt: '',
+        bookASpot: ''
       };
 
       return { id: doc.id, ...convertedAd };
