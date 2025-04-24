@@ -4,8 +4,12 @@
   }
 
   .card {
-    max-width: 150px;
+    width: 48%;
     max-height: 150px;
+    @media screen and (min-width: 1024px) {
+      max-width: 150px;
+      max-height: 150px;
+    }
     border-radius: 10px;
     overflow: hidden;
     position: relative;
@@ -40,6 +44,8 @@
 
 
 .book-spots {
+  flex-wrap: wrap;
+  gap: 10px;
   @media screen and (min-width: 1024px) {
     flex-wrap: nowrap;
     justify-content: space-between;
