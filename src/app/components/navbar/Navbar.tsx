@@ -96,11 +96,9 @@ export default function Navbar(props: NavbarProps) {
                 </span>
               </>
             )}
-            <div className="block md:hidden">
-              <span onClick={toggleMenu}>
-                <MenuIcon />
-              </span>
-            </div>
+            <span className="md:hidden" onClick={toggleMenu}>
+              <MenuIcon />
+            </span>
           </div>
         </div>
       </div>
