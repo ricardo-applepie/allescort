@@ -30,34 +30,36 @@ const EscortCard = ({ escort, escortIndex }: any) => {
         </div>
       )}
       <div className="flex flex-col md:flex-row">
-        <div className="md:w-1/3 escort-card__img-wrapper">
+        <Link href={`/escort/${adId}`}  className="md:w-1/3 escort-card__img-wrapper">
           {previewImage && (
             <img className="h-full w-full object-cover escort-card__img" src={previewImage} alt="Escort" />
           )}
-        </div>
+        </Link>
         <div className="md:w-1/3 pl-4 pr-4 md:pb-4 pt-4  flex flex-col justify-between">
-          <div>
+          <Link href={`/escort/${adId}`} >
             <h2 className="text-xl font-bold text-gray-800 mb-2">{escort?.adTitle}</h2>
             <p className="text-gray-600 text-md line-clamp-4">
               {escort?.description}
             </p>
-          </div>
-          <div className="text-sm mt-3 text-red-700 font-semibold">{escort?.phone}</div>
+          </Link>
+          <div className=" btn--default text-sm mt-3 text-red-700 font-semibold">{escort?.phone}</div>
         </div>
-        <div className="md:w-1/3 pl-4 pr-4 pb-4 md:pt-4 flex flex-col justify-between">
+        <Link 
+          href={`/escort/${adId}`}
+          className="md:w-1/3 pl-4 pr-4 pb-4 md:pt-4 flex flex-col justify-between"
+        >
           <ul className="text-sm mt-4 space-y-1">
             <li><strong>Location:</strong> {escort?.address}</li>
             <li><strong>Age:</strong> {escort.age}</li>
             <li><strong>Likes:</strong> bj</li>
             <li><strong>Sex:</strong> F</li>
           </ul>
-          <Link 
-            href={`/escort/${adId}`}
+          <span 
             className="mt-4 inline-block text-center bg-red-700 hover:bg-red-800 text-white px-4 py-2 rounded-full transition-all duration-300"
           >
             View Profile
-          </Link>
-        </div>
+          </span>
+        </Link>
       </div>
     </div>
   );
