@@ -66,27 +66,27 @@ export default function EscortProfile({ ad }: any) {
               </li>
             </ul>
           </div>
-    <div className="bg-white p-6 rounded-lg shadow-lg mt-4">
-      <h2 className="text-xl font-semibold text-gray-800">Services</h2>
-      <ul className="mt-4 flex flex-wrap gap-4">
-        {[
-          "69 + Megafransk",
-          "Aktiv",
-          "69 + Superfransk",
-          "69 almindelig",
-          "Blide former",
-          "Erotisk massage",
-          "Escort Service"
-        ].map((service, index) => (
-          <li
-            key={`erotisk_${index}`}
-            className="relative group flex-1 px-4 py-2 text-center whitespace-nowrap bg-red-700 text-white hover:bg-red-900 transition duration-200 border-r border-gray-100"
-          >
-            <a href="#" className="w-full block">{service}</a>
-          </li>
-        ))}
-      </ul>
-    </div>
+          <div className="bg-white p-6 rounded-lg shadow-lg mt-4">
+            <h2 className="text-xl font-semibold text-gray-800">Services</h2>
+            <ul className="mt-4 flex flex-wrap gap-4">
+              {[
+                "69 + Megafransk",
+                "Aktiv",
+                "69 + Superfransk",
+                "69 almindelig",
+                "Blide former",
+                "Erotisk massage",
+                "Escort Service"
+              ].map((service, index) => (
+                <li
+                  key={`erotisk_${index}`}
+                  className="relative group flex-1 px-4 py-2 text-center whitespace-nowrap bg-red-700 text-white hover:bg-red-900 transition duration-200 border-r border-gray-100"
+                >
+                  <a href="#" className="w-full block">{service}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
 
         <div className="space-y-4">
@@ -122,9 +122,9 @@ export default function EscortProfile({ ad }: any) {
           </div>
         </div>
       </section>
-      <section className="section">
+      {/* <section className="section">
         <EscortCards escorts={[1,2,3,4,5,6,7,8]}/>
-      </section>
+      </section> */}
     </div>
   );
 }
