@@ -4,12 +4,12 @@
   width: 80vw;
   z-index: 10;
   visibility: visible; /* Make sure it's visible from the start */
-  transform: translateX(-100%); /* Initially off-screen to the left */
+  transform: translateX(-100%) !important; /* Initially off-screen to the left */
   transition: transform 0.5s ease-out; /* Smooth transition for transform */
 }
 
 .menu-slide.open {
-  transform: translateX(0); /* Move it into view when 'open' */
+  transform: translateX(0) !important; /* Move it into view when 'open' */
 }
 
 /* Overlay */
@@ -20,7 +20,7 @@
   transition: opacity 0.3s ease;
 }
 
-.overlay.active {
+.overlay {
   opacity: 0.5;
   pointer-events: auto;
 }

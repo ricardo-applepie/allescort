@@ -30,11 +30,14 @@ const SlideInMenu = () => {
 
   return (
     <>
-      <div
-        className={`overlay fixed inset-0 bg-gray-900 bg-opacity-50 transition-opacity duration-300 ${isOpen ? 'active' : ''}`}
-        onClick={closeMenuOnOverlayClick} // Close menu on overlay click
-      />
-      
+    {isOpen && (
+        <div
+          className={`overlay fixed inset-0 bg-gray-900 bg-opacity-50 transition-opacity duration-300`}
+          onClick={closeMenuOnOverlayClick} // Close menu on overlay click
+        />
+      )}
+
+
       <div
         className={`menu-slide fixed top-0 left-0 h-full bg-white shadow-xl transform transition-transform ${isOpen ? 'open' : ''}`}
       >
