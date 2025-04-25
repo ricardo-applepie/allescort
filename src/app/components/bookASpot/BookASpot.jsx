@@ -18,7 +18,6 @@ export const BookASpot = ({ bookedSpotAds }) => {
         {/* Display the booked spots */}
         {bookedSpotAds.map((ad, index) => {
           const previewImage = ad?.imageUrls && ad?.imageUrls[0];
-          console.log(ad)
           return (
             <div className="card" key={index}>
               <Link href={`/escort/${ad?.adId}`} className="card-image">
