@@ -24,6 +24,13 @@ export default function Navbar(props: NavbarProps) {
   const dispatch = useDispatch();
   const { isOpen } = useSelector((state: any) => state.menuState);
   const [signedIn, setSignedIn] = useState(false);
+  const [value, setValue] = useState('')
+
+  const  handleChange = (e: any) => {
+     e.preventDefault();
+     setValue(e.target.value)
+  };
+
   const router = useRouter()
   const toggleMenu = () => {
     dispatch(setMenuState(!isOpen));
@@ -40,6 +47,16 @@ export default function Navbar(props: NavbarProps) {
     }
   };
 
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();  // This prevents the form from triggering a page reload
+    let searchString = "/search";
+    if (value) {
+      searchString = searchString + `?searchTerm=${value}`;
+    }
+    console.log(searchString, "searchString");
+    router.push(searchString);  // Use router.push to navigate without reloading
+  };
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       
@@ -54,7 +71,7 @@ export default function Navbar(props: NavbarProps) {
     return () => unsubscribe(); // Cleanup when component unmounts
   }, []);
 
-
+ 
   return (
     <div className="navbar">
       <div className="navbar__banner">
@@ -65,12 +82,12 @@ export default function Navbar(props: NavbarProps) {
           <div className="flex justify-between gap-6 md:flex">
             <Link className="pl-1 navbar__link  font-semibold text-1xl md:text-4xl" href={"/"}> Allescort</Link>
           </div>
-          <form className="navbar__search hidden md:block">
+          <form className="navbar__search hidden md:block" onSubmit={(e: React.FormEvent<HTMLFormElement>) => handleSubmit(e) }>
               <div className="flex position-relative">
-                <input className="navbar__input placeholder:text-[#fff]" placeholder="Search here"/>
-                <div className="navbar__search-icon">
+                <input className="navbar__input placeholder:text-[#fff]" placeholder="Search here" value={value} onChange={handleChange}/>
+                <button className="navbar__search-icon" type="submit">
                   <SearchIcon />
-                </div>
+                </button>
               </div>
           </form>
           <div className="block">
