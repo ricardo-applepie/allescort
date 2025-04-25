@@ -47,7 +47,7 @@ export default function Navbar(props: NavbarProps) {
       if(user && !user.uid) {
       } else if(user) {
         const userData: any = user;
-        dispatch(setAuthState(userData))
+        dispatch(setAuthState(userData));
       }
     });
     return () => unsubscribe(); // Cleanup when component unmounts
