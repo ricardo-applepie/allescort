@@ -8,14 +8,14 @@ export default function Services({ fieldIndex, options, label }: any) {
       <div className="mb-4">
         <div className="flex min-w-max divide-x divide-gray-100 rounded-lg shadow">
           {[
-            { href: "/search?searchTerm=København", title: "København", subtitle: "216 escort" },
-            { href: "/search?searchTerm=Jylland", title: "Jylland", subtitle: "193 escort" },
-            { href: "/search?searchTerm=Aarhus", title: "Aarhus", subtitle: "165 escort" },
-            { href: "/search?searchTerm=Aalborg", title: "Aalborg", subtitle: "16 escort" },
-            { href: "/search?searchTerm=Sjælland", title: "Sjælland", subtitle: "28 escort" },
-            { href: "/search?searchTerm=Odense", title: "Odense", subtitle: "184 escort" },
-            { href: "/search?searchTerm=Fyn", title: "Fyn", subtitle: "89 escort" },
-            { href: "/search?searchTerm=Kolding", title: "Kolding", subtitle: "Join us" },
+            { href: "/search?city=København", title: "København", subtitle: "216 escort" },
+            { href: "/search?city=Jylland", title: "Jylland", subtitle: "193 escort" },
+            { href: "/search?city=Aarhus", title: "Aarhus", subtitle: "165 escort" },
+            { href: "/search?city=Aalborg", title: "Aalborg", subtitle: "16 escort" },
+            { href: "/search?city=Sjælland", title: "Sjælland", subtitle: "28 escort" },
+            { href: "/search?city=Odense", title: "Odense", subtitle: "184 escort" },
+            { href: "/search?city=Fyn", title: "Fyn", subtitle: "89 escort" },
+            { href: "/search?city=Kolding", title: "Kolding", subtitle: "Join us" },
           ].map((item, index) => (
             <Link
               key={index}
