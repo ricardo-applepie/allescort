@@ -23,7 +23,9 @@ interface NavbarProps {
 export default function Navbar(props: NavbarProps) {
   const dispatch = useDispatch();
   const { isOpen } = useSelector((state: any) => state.menuState);
-  const [signedIn, setSignedIn] = useState(false);
+  const { authState } = useSelector((state: any) => state); // Renamed to avoid confusion with firebase auth
+  const hasUser = authState?.user?.uid;
+
   const router = useRouter()
   const toggleMenu = () => {
     dispatch(setMenuState(!isOpen));
@@ -32,7 +34,6 @@ export default function Navbar(props: NavbarProps) {
   const logout = async () => {
     try {
       await signOut(auth);
-      setSignedIn(false);
       dispatch(clearAuthState());
       router.push("/")
     } catch (error) {
@@ -44,9 +45,7 @@ export default function Navbar(props: NavbarProps) {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       
       if(user && !user.uid) {
-        setSignedIn(false)
       } else if(user) {
-        setSignedIn(true)
         const userData: any = user;
         dispatch(setAuthState(userData))
       }
@@ -75,10 +74,10 @@ export default function Navbar(props: NavbarProps) {
           </form>
           <div className="block">
             <Link className="mr-2 btn--outline btn--default hidden" href={"/newAd"}>Post ad </Link>
-            {!signedIn && (
+            {!hasUser && (
               <Link className="mr-2 btn--outline btn--default" href={"/login"}>Login </Link>
             )}
-            {signedIn && (
+            {hasUser && (
               <>
               
                 <Link 
