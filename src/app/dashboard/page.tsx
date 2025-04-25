@@ -18,7 +18,6 @@ export default function DashBoard() {
   const joinedAt = state.auth?.user?.metadata.creationTime;
   const uid = state.auth?.user?.uid;
 
-  console.log(user, "userSnap")
   // Update user coin count in the database
   const deductCoins = async () => {
     if (user?.coins > 0) {
@@ -53,13 +52,11 @@ export default function DashBoard() {
         // Update local user state
         setUser((prev: any) => ({ ...prev, coins: newCoins }));
         toast.success('Account has been boosted!');
-        console.log('Coin deducted successfully');
       } catch (error: any) {
         console.error('Error deducting coins:', error.message);
         toast.error(error.message || 'Something went wrong.');
       }
     } else {
-      console.log('Not enough coins to deduct');
       toast.error('You don’t have enough coins.');
     }
   };
@@ -100,7 +97,6 @@ const bookASpot = async () => {
 
         // Update local user state
         toast.success('Spot has been booked!');
-        console.log('Coin deducted successfully');
       } else {
         console.warn('No ad found for this user.');
         toast.error('No ad found to boost.');
@@ -110,7 +106,6 @@ const bookASpot = async () => {
       toast.error(error.message || 'Something went wrong.');
     }
   } else {
-    console.log('Not enough coins to deduct');
     toast.error('You don’t have enough coins.');
   }
 };

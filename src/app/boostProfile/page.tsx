@@ -12,7 +12,6 @@ export default function BoostProfile() {
   const router = useRouter()
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
-      console.log(user, "this is loged in")
       if(user && !user.uid) {
         router.push("/")
       }

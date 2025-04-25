@@ -34,7 +34,6 @@ export default function Navbar(props: NavbarProps) {
       await signOut(auth);
       setSignedIn(false);
       router.push("/")
-      console.log("👋 User signed out successfully");
     } catch (error) {
       console.error("❌ Logout error:", error);
     }
@@ -42,12 +41,10 @@ export default function Navbar(props: NavbarProps) {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
-      console.log(user && !user.uid, "this is loged in")
       
       if(user && !user.uid) {
         setSignedIn(false)
       } else if(user) {
-        console.log(user, "laksdaksnd")
         setSignedIn(true)
         const userData: any = user;
         dispatch(setAuthState(userData))

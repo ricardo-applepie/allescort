@@ -56,7 +56,6 @@ export default function Form(props: FormProps) {
         coins: 0,
         createdAt: new Date(),
       });
-      console.log("User profile created");
       toast.success("Account has been created!");
     } catch (error) {
       console.error("Error creating user profile:", error);
@@ -80,8 +79,6 @@ export default function Form(props: FormProps) {
     try {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
-
-      console.log("User signed in:", user.uid);
       // You can fetch additional profile info from Firestore here if needed
       router.push('/boostProfile');
     } catch (error: any) {

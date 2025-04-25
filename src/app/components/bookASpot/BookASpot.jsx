@@ -18,9 +18,10 @@ export const BookASpot = ({ bookedSpotAds }) => {
         {/* Display the booked spots */}
         {bookedSpotAds.map((ad, index) => {
           const previewImage = ad?.imageUrls && ad?.imageUrls[0];
+          console.log(ad)
           return (
             <div className="card" key={index}>
-              <div className="card-image">
+              <Link href={`/escort/${ad?.adId}`} className="card-image">
                 {previewImage && (
                   <img
                     src={previewImage} // Replace with the actual image URL from the ad
@@ -29,7 +30,7 @@ export const BookASpot = ({ bookedSpotAds }) => {
                   />
                 )}
                 <div className="card-text">{ad.adTitle}</div>
-              </div>
+              </Link>
             </div>
         )})}
 
