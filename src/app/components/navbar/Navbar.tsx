@@ -114,7 +114,7 @@ export default function Navbar(props: NavbarProps) {
         Allescort.dk Danmarks største og bedste Massage Escort side
       </div>
       <div className="container">
-        <div className="max-w-7xl pb-1 md:pb-4 mx-auto flex flex-col md:flex-row justify-between md:items-center text-white pt-4 md:pt-7 md:pt-10">
+        <div className="max-w-7xl pb-1 md:pb-4 mx-auto flex flex-col md:flex-row justify-between md:items-center text-white pt-4 md:pt-7 md:pt-10 relative">
           <div className="flex justify-between gap-6 md:flex  center-mobile pb-2 md:pb-0">
             <Link className="pl-1 navbar__link font-semibold text-1xl md:text-4xl" href={"/"}>Allescort</Link>
           </div>
@@ -189,7 +189,7 @@ export default function Navbar(props: NavbarProps) {
                 </span>
               </>
             )}
-            <span className="md:hidden" onClick={toggleMenu}>
+            <span className="md:hidden navbar__hamburger" onClick={toggleMenu}>
               <MenuIcon />
             </span>
 

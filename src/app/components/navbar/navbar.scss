@@ -66,8 +66,15 @@
     flex-grow: 1;
     max-width: 450px;
     border-radius: 50px;
-  }
+  } 
+  &__hamburger {
+    @media screen and (max-width: 450px) {
+      position: absolute;
+      top: 26px;
+      right: 1px;
+    }
 
+  }
   .region-dropdown {
     background-color: $primary;
     color: $white;
