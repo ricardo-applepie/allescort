@@ -16,6 +16,42 @@ interface NavbarProps {
   type?: string;
 }
 
+const services = [
+  { id: 64, label: 'Passiv', checked: true },
+  { id: 65, label: 'Aktiv', checked: true },
+  { id: 68, label: 'Par', checked: true },
+  { id: 117, label: '69 + Megafransk' },
+  { id: 116, label: '69 + Superfransk' },
+  { id: 118, label: '69 almindelig' },
+  { id: 94, label: 'Blid Dominans' },
+  { id: 106, label: 'Blide former' },
+  { id: 107, label: 'Dansk' },
+  { id: 74, label: 'Dildo-show' },
+  { id: 126, label: 'Erotisk massage' },
+  { id: 81, label: 'Erotiskmassage' },
+  { id: 127, label: 'Escort Service' },
+  { id: 112, label: 'Fransk' },
+  { id: 113, label: 'Gensidigfransk' },
+  { id: 105, label: 'GFE-kæresteoplevelse' },
+  { id: 103, label: 'Giver græsk' },
+  { id: 95, label: 'Giver sorte kys' },
+  { id: 120, label: 'Handicappet' },
+  { id: 85, label: 'Herskerinde' },
+  { id: 86, label: 'Hård Dominans' },
+  { id: 124, label: 'In Call' },
+  { id: 80, label: 'Kropsmassage' },
+  { id: 69, label: 'Lesbisk' },
+  { id: 70, label: 'Lesbisk show' },
+  { id: 115, label: 'Megafransk' },
+  { id: 104, label: 'Modtager græsk' },
+  { id: 96, label: 'Modtager sorte kys' },
+  { id: 67, label: 'Nøgenbilleder/Video' },
+  { id: 79, label: 'Oliemassage' },
+  { id: 111, label: 'Oliespansk' },
+  { id: 109, label: 'Oliesvensk' },
+];
+
+
 export default function Navbar(props: NavbarProps) {
   const dispatch = useDispatch();
   const { isOpen } = useSelector((state: any) => state.menuState);
@@ -82,6 +118,7 @@ export default function Navbar(props: NavbarProps) {
           <div className="flex justify-between gap-6 md:flex  center-mobile pb-2 md:pb-0">
             <Link className="pl-1 navbar__link font-semibold text-1xl md:text-4xl" href={"/"}>Allescort</Link>
           </div>
+
           <form className="navbar__search desktop mr-2" onSubmit={handleSubmit}>
             <div className="flex position-relative">
               <input className="navbar__input placeholder:text-[#fff]" placeholder="Search here" value={value} onChange={handleChange} />
@@ -97,7 +134,7 @@ export default function Navbar(props: NavbarProps) {
               value={selectedRegion}
               onChange={handleRegionChange}
             >
-              <option value="">Select Region</option>
+              <option value="">Area</option>
               <option value="København">København</option>
               <option value="Sjælland">Sjælland</option>
               <option value="Sydsjælland">Sydsjælland</option>
@@ -117,6 +154,20 @@ export default function Navbar(props: NavbarProps) {
               <option value="Sverige"> Sverige</option>
               <option value="Flensburg">Flensburg</option>
               <option value="Slagelse">Slagelse</option>
+            </select>
+            <select
+              className="region-dropdown mr-2"
+              value={selectedRegion}
+              onChange={handleRegionChange}
+            >
+              <option value="">Service</option>
+              {services.map((service, index) => (
+                <option 
+                  key={`service__${index}`}
+                  value={service.label}>{service.label}
+                </option>
+              ))}
+    
             </select>
             {signedIn && (
               <Link className="mr-2 btn--outline btn--default hidden" href={"/newAd"}>Post ad</Link>

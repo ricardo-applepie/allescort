@@ -115,7 +115,7 @@ const formFields = [
         name: "area",
         require: true,
         type: "select",
-        placeholder: "Select Area",
+        placeholder: "Area",
         options: [
           "København", "Sjælland", "Sydsjælland", "Nordsjælland", "Odense", 
           "Fyn", "Aarhus", "Aalborg", "Jylland", "Esbjerg", "Randers", 
