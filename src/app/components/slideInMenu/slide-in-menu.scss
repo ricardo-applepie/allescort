@@ -1,43 +1,20 @@
-/* Add initial state without animation */
 .menu-slide {
-  position: relative;
+  position: fixed;
+  height: 100vh;
+  width: 80vw;
   z-index: 10;
-  visibility: hidden;
+  visibility: visible; /* Make sure it's visible from the start */
+  transform: translateX(-100%); /* Initially off-screen to the left */
+  transition: transform 0.5s ease-out; /* Smooth transition for transform */
 }
 
 .menu-slide.open {
-  visibility: visible;
+  transform: translateX(0); /* Move it into view when 'open' */
 }
 
-/* Slide-in animation */
-@keyframes slideIn {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-
-@keyframes slideOut {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
-}
-
-.slide-in {
-  animation: slideIn 0.5s ease-out forwards;
-}
-
-.slide-out {
-  animation: slideOut 0.5s ease-in forwards;
-}
-
-/* For the overlay */
+/* Overlay */
 .overlay {
+  z-index: 9;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s ease;

@@ -4,10 +4,11 @@ import React, { useEffect } from 'react';
 import './slide-in-menu.scss'; // Import the SCSS file for styling
 import { useDispatch, useSelector } from 'react-redux';
 import { setMenuState } from '@/redux/menu/menu';
+import { Home, AccountCircle, HelpOutline, Settings, ExitToApp } from '@mui/icons-material'; // Ensure correct import
+import Link from 'next/link'; // Using 'Link' for navigation
 
 const SlideInMenu = () => {
   const { isOpen } = useSelector((state) => state.menuState);
-  console.log(isOpen, "isOpen")
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -28,54 +29,54 @@ const SlideInMenu = () => {
   };
 
   return (
-    <div className="menu-slide">
-      {/* Overlay */}
+    <>
       <div
-        className={`fixed inset-0 bg-gray-900 bg-opacity-50 transition-opacity duration-300 ${
-          isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
-        }`}
+        className={`overlay fixed inset-0 bg-gray-900 bg-opacity-50 transition-opacity duration-300 ${isOpen ? 'active' : ''}`}
         onClick={closeMenuOnOverlayClick} // Close menu on overlay click
       />
-
-      {/* Slide-in Menu */}
+      
       <div
-        className={`fixed top-0 left-0 h-full bg-white shadow-xl transform transition-transform ${
-          isOpen ? 'slide-in' : 'slide-out'
-        }`}
-        style={{ width: '450px' }}
+        className={`menu-slide fixed top-0 left-0 h-full bg-white shadow-xl transform transition-transform ${isOpen ? 'open' : ''}`}
       >
         <div className="p-4 flex justify-between items-center">
-          <a href="https://www.escort-side.dk/">
-            <img
-              src="https://images.escort-side.dk/Static/logo.webp"
-              alt="Logo"
-              className="h-10"
-            />
-          </a>
-          <button onClick={toggleMenu} className="text-xl text-gray-600">
+          <h2 className="text-2xl font-bold text-gray-800">All Escort</h2>
+          <button onClick={toggleMenu} className="text-3xl text-gray-600">
             <i className="fas fa-times"></i>
           </button>
         </div>
+        
         <div className="px-4 py-2">
           <nav>
             <ul>
-              {/* Menu items */}
-              <li className="mb-4">
-                <a href="https://www.escort-side.dk/upgradeProfile" className="flex items-center space-x-2">
-                  <img
-                    src="https://images.escort-side.dk/Static/upgrade.png"
-                    alt="Upgrade"
-                    className="h-6"
-                  />
-                  <span>Activate profile (Diamond, Gold, Silver)</span>
-                </a>
+              <li className="mb-4 flex items-center space-x-2">
+                <Home className="text-gray-600" />
+                <Link href="/home" className="text-lg text-gray-800">Home</Link>
               </li>
-              {/* Add more menu items here */}
+              
+              <li className="mb-4 flex items-center space-x-2">
+                <AccountCircle className="text-gray-600" />
+                <Link href="/profile" className="text-lg text-gray-800">My Profile</Link>
+              </li>
+              
+              <li className="mb-4 flex items-center space-x-2">
+                <HelpOutline className="text-gray-600" />
+                <Link href="/help" className="text-lg text-gray-800">Help & Support</Link>
+              </li>
+              
+              <li className="mb-4 flex items-center space-x-2">
+                <Settings className="text-gray-600" />
+                <Link href="/settings" className="text-lg text-gray-800">Settings</Link>
+              </li>
+              
+              <li className="mb-4 flex items-center space-x-2">
+                <ExitToApp className="text-gray-600" />
+                <Link href="/logout" className="text-lg text-gray-800">Logout</Link>
+              </li>
             </ul>
           </nav>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
