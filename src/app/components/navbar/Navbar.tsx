@@ -86,7 +86,7 @@ export default function Navbar(props: NavbarProps) {
                   className="mr-3 btn--outline btn--default"
                   href={"/dashboard"}
                 >
-                  Dashboard 
+                  Profile 
                 </Link>
                 <span 
                   className="mr-3 btn--bg btn--default"
