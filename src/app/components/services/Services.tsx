@@ -6,13 +6,13 @@ export default function Services({ fieldIndex, options, label }: any) {
       <div className="mb-4">
         <div className="flex min-w-max divide-x divide-gray-100 rounded-lg shadow">
           {[
-            { href: "search.php", title: "All", subtitle: "216 escort" },
-            { href: "search.php?c=Sex", title: "Sex", subtitle: "193 escort" },
-            { href: "search.php?c=Massage", title: "Massage", subtitle: "165 escort" },
-            { href: "search.php?clinics=1", title: "Clinics", subtitle: "16 escort" },
-            { href: "search.php?n=Denmark", title: "Danish", subtitle: "28 escort" },
-            { href: "/thai-massage", title: "Thai", subtitle: "184 escort" },
-            { href: "search.php?video=1", title: "Watch videos", subtitle: "89 escort" },
+            { href: "/", title: "All", subtitle: "216 escort" },
+            { href: "/search?searchTerm=Sex", title: "Sex", subtitle: "193 escort" },
+            { href: "/search?searchTerm=Massage", title: "Massage", subtitle: "165 escort" },
+            { href: "/search?searchTerm=clinics", title: "Clinics", subtitle: "16 escort" },
+            { href: "/search?searchTerm=Denmark", title: "Danish", subtitle: "28 escort" },
+            { href: "/search?searchTerm=Thai", title: "Thai", subtitle: "184 escort" },
+            { href: "search?searchTerm=video", title: "Watch videos", subtitle: "89 escort" },
             { href: "/members", title: "Social Club", subtitle: "Join us" },
           ].map((item, index) => (
             <a
