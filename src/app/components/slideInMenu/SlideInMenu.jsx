@@ -6,15 +6,16 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setMenuState } from '@/redux/menu/menu';
 import { Home, AccountCircle, HelpOutline, Settings, ExitToApp } from '@mui/icons-material'; // Ensure correct import
 import Link from 'next/link'; // Using 'Link' for navigation
-import { signOut } from 'firebase/auth';
-import { auth } from "@/lib/firebase";
+import { signOut } from 'firebase/auth'; // Import signOut from firebase/auth
+import { getAuth } from 'firebase/auth'; // Import getAuth from firebase/auth
+import { auth } from "@/lib/firebase"; // Ensure this import is correct
 
 const SlideInMenu = () => {
   const { isOpen } = useSelector((state) => state.menuState);
-  const { auth } = useSelector((state) => state);
-  console.log(auth, "authauth")
+  const { auth: authState } = useSelector((state) => state); // Renamed to avoid confusion with firebase auth
+  console.log(authState, "authauth"); // Check if auth state is being passed correctly
   const dispatch = useDispatch();
-  const hasUser = auth?.user?.uid;
+  const hasUser = authState?.user?.uid;
 
   useEffect(() => {
     // Initial menu state is false (closed) on page load
@@ -33,23 +34,24 @@ const SlideInMenu = () => {
     }
   };
 
-    const logout = async () => {
-      try {
-        await signOut(auth);
-      } catch (error) {
-        console.error("❌ Logout error:", error);
-      }
-    };
+  const logout = async () => {
+    try {
+      const authInstance = getAuth(); // Get Firebase Auth instance
+      await signOut(authInstance); // Use the Firebase Auth instance to sign out
+      toggleMenu()
+    } catch (error) {
+      console.error("❌ Logout error:", error);
+    }
+  };
 
   return (
     <>
-    {isOpen && (
+      {isOpen && (
         <div
           className={`overlay fixed inset-0 bg-gray-900 bg-opacity-50 transition-opacity duration-300`}
           onClick={closeMenuOnOverlayClick} // Close menu on overlay click
         />
       )}
-
 
       <div
         className={`menu-slide fixed top-0 left-0 h-full bg-white shadow-xl transform transition-transform ${isOpen ? 'open' : ''}`}
@@ -92,7 +94,7 @@ const SlideInMenu = () => {
               <li className="mb-4 flex items-center space-x-2">
                 <ExitToApp className="text-gray-600" />
                 {!hasUser ?  (
-                  <Link href="/login" className="text-lg text-gray-800">login</Link>
+                  <Link href="/login" className="text-lg text-gray-800">Login</Link>
                 ) :  (
                   <span onClick={logout} className="text-lg text-gray-800">Logout</span>
                 )}
