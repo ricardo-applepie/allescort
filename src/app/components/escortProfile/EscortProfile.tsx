@@ -3,6 +3,7 @@
 import EscortCards from "../escortCards/EscortCards";
 import SimpleSlider from "../simpleSlider/SimpleSlider";
 import "./escort-profile.scss";
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 
 export default function EscortProfile({ ad }: any) {
   const img = "https://nympho.dk/_pictures/ads/l/1147137591531009752.webp";
@@ -58,7 +59,16 @@ export default function EscortProfile({ ad }: any) {
               </li>
               <li className="flex justify-between items-center">
                 <span className="font-semibold text-gray-800">Phone:</span>
-                <span className="text-blue-600">{phone}</span>
+                <span className="text-blue-600">
+                  {phone} 
+                  <a 
+                    className="whatsapp ml-2 mr-0"
+                    href={`https://api.whatsapp.com/send?phone=${phone}&text=Hi, I have seen your profile on Alle escort`} 
+                    target="_blank"
+                  >
+                    <WhatsAppIcon />
+                  </a>
+                </span>
               </li>
               <li className="flex justify-between items-center">
                 <span className="font-semibold text-gray-800">Phone Number Verified:</span>

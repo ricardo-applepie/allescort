@@ -3,7 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import './escort-card.scss';
-
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 interface EscortCardProps {
   text?: string;
   escortIndex: number;
@@ -42,7 +42,18 @@ const EscortCard = ({ escort, escortIndex }: any) => {
               {escort?.description}
             </p>
           </Link>
-          <div className=" btn--default text-sm mt-3 text-red-700 font-semibold">{escort?.phone}</div>
+          <div className=" btn--default text-sm mt-3 text-red-700 font-semibold">
+            <a 
+              className="whatsapp mr-2"
+              href={`https://api.whatsapp.com/send?phone=${escort?.phone}&text=Hi, I have seen your profile on Alle escort`} 
+              target="_blank"
+            >
+              <WhatsAppIcon />
+            </a>
+            <span>
+              {escort?.phone} 
+            </span> 
+      </div>
         </div>
         <Link 
           href={`/escort/${adId}`}

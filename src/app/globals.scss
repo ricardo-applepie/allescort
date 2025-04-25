@@ -155,3 +155,19 @@ svg {
    font-weight: 600;
   color: #000;
 }
+
+.whatsapp {
+  position: relative;
+  display: inline-block;
+  background-color: #25D366;
+  width: 35px;
+  height: 35px;
+  padding: 5px 8px;
+  border-radius: 50px;
+  svg {
+    path {
+      fill: #fff;
+    }
+    margin-left: -1px;
+  }
+}
