@@ -17,6 +17,7 @@ import { useRouter } from "next/navigation";
 import { auth as firebaseAuth, db, storage } from "@/lib/firebase";
 import { toast } from "react-toastify";
 import { useSelector } from "react-redux";
+import ServicesComponent from "../components/servicesTooffer/ServicesToOffer";
 
 const formFields = [
   {
@@ -266,6 +267,7 @@ export default function DashBoard() {
               })}
             </div>
           ))}
+          <ServicesComponent onChange={(selected) => handleChange("services", selected)} />
 
           {/* 📸 Image Upload Section */}
           <div className="mb-6">

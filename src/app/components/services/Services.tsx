@@ -1,5 +1,7 @@
 'use client';
 
+import Link from "next/link";
+
 export default function Services({ fieldIndex, options, label }: any) {
   return (
     <div className="w-full overflow-x-auto">
@@ -15,7 +17,7 @@ export default function Services({ fieldIndex, options, label }: any) {
             { href: "search?searchTerm=video", title: "Watch videos", subtitle: "89 escort" },
             { href: "/members", title: "Social Club", subtitle: "Join us" },
           ].map((item, index) => (
-            <a
+            <Link
               key={index}
               href={item.href}
               className="relative group flex-1 px-4 py-2 text-center whitespace-nowrap bg-red-700 text-white hover:bg-red-900 transition duration-200 border-r border-gray-100"
@@ -25,7 +27,7 @@ export default function Services({ fieldIndex, options, label }: any) {
 
               {/* Animated bottom border */}
               <span className="absolute left-0 bottom-0 h-1 w-full bg-white scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100" />
-            </a>
+            </Link>
           ))}
         </div>
       </div>
