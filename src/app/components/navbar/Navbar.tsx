@@ -45,6 +45,7 @@ export default function Navbar(props: NavbarProps) {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       
       if(user && !user.uid) {
+        dispatch(setAuthState(user));
       } else if(user) {
         const userData: any = user;
         dispatch(setAuthState(userData));
