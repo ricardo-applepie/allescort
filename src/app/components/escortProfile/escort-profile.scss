@@ -100,6 +100,9 @@
 .thumbnails {
   gap: 19px;
   div {
-    flex: 0 0 16.66666667%;
+    flex: 0 0 47%;
+    @media screen and (min-width: 1024px) {
+      flex: 0 0 16.66666667%;
+    }
   }
 }
