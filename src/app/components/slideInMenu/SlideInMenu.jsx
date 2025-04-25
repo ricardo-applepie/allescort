@@ -13,7 +13,7 @@ import { clearAuthState } from '@/redux/auth/auth';
 
 const SlideInMenu = () => {
   const { isOpen } = useSelector((state) => state.menuState);
-  const { auth: authState } = useSelector((state) => state); // Renamed to avoid confusion with firebase auth
+  const { authState } = useSelector((state) => state); // Renamed to avoid confusion with firebase auth
   console.log(authState, "authauth"); // Check if auth state is being passed correctly
   const dispatch = useDispatch();
   const hasUser = authState?.user?.uid;
