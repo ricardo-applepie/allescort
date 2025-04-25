@@ -142,6 +142,10 @@ const formFields = [
 export default function DashBoard() {
   const [formData, setFormData] = useState({ uid: "", status: "pending" });
   const [images, setImages] = useState<File[]>([]);
+  const [verificationImages, setVerificationImage] = useState<File>();
+  const [identityImages, setIdentityImage] = useState<File>();
+  const [videoUpload, setVideoUpload] = useState<File>();
+  const [ProfilePicture, setProfilePicture] = useState<File>();
 
   const auth = useSelector((state: any) => state.auth);
   const { authToken, user } = auth;
@@ -269,20 +273,128 @@ export default function DashBoard() {
           ))}
           <ServicesComponent onChange={(selected) => handleChange("services", selected)} />
 
-          {/* 📸 Image Upload Section */}
           <div className="mb-6">
-            <label className="block text-gray-700 font-medium mb-1">Upload Images</label>
+            <label className="block text-gray-700 font-medium mb-1">Upload Front Picture</label>
+            <p className="text-sm text-gray-600 mb-2">
+              <strong>DK:</strong> Upload et forsidebillede til din profil. <br />
+              Dette billede vil være det første, kunderne ser på din profilside.
+            </p>
+            <p className="text-sm text-gray-600 mb-4">
+              <strong>EN:</strong> Upload a front picture for your profile. <br />
+              This image will appear as the main photo on your profile page.
+            </p>
+            <input
+              type="file"
+              accept="image/*"
+              onChange={(e) => {
+                const file = e.target.files?.[0];
+                if (file) {
+                  setProfilePicture(file);
+                }
+              }}
+              className="w-full p-2 border border-gray-300 rounded"
+            />
+          </div>
+
+          <div className="mb-6">
+            <label className="block text-gray-700 font-medium mb-1">Upload Gallery Pictures (Max 20)</label>
+            <p className="text-sm text-gray-600 mb-2">
+              <strong>DK:</strong> Upload op til 20 billeder i dit galleri. <br />
+              <strong>Ny ophavsretslov 2025:</strong> Brug ikke falske billeder – overtrædelse medfører sletning af din konto.
+            </p>
+            <p className="text-sm text-gray-600 mb-4">
+              <strong>EN:</strong> Upload up to 20 pictures in your gallery. <br />
+              <strong>New Copyright Act 2025:</strong> Do not use fake images – violation will result in account deletion.
+            </p>
             <input
               type="file"
               accept="image/*"
               multiple
               onChange={(e) => {
                 const files = Array.from(e.target.files || []);
+                if (files.length > 20) {
+                  alert("You can upload a maximum of 20 images.");
+                  return;
+                }
                 setImages(files);
               }}
               className="w-full p-2 border border-gray-300 rounded"
             />
           </div>
+
+
+          <div className="mb-6">
+            <label className="block text-gray-700 font-medium mb-1">Upload Video</label>
+            <p className="text-sm text-gray-600 mb-2">
+              <strong>DK:</strong> Mange bruger falske eller gamle billeder. Derfor er videoannoncer fremtiden. Lav en kort video med din smartphone og upload den her. Maksimal længde: 2 minutter.
+            </p>
+            <p className="text-sm text-gray-600 mb-4">
+              <strong>EN:</strong> Many users upload fake or outdated photos. That’s why video advertising is the future. Record a short video with your smartphone and upload it here. Maximum length: 2 minutes.
+            </p>
+            <input
+              type="file"
+              accept="video/*"
+              onChange={(e) => {
+                const file = e.target.files?.[0];
+                if (file) {
+                  setVideoUpload(file); // state: const [videoUpload, setVideoUpload] = useState<File | null>(null);
+                }
+              }}
+              className="w-full p-2 border border-gray-300 rounded"
+            />
+          </div>
+
+
+          <div className="mb-6">
+            <label className="block text-gray-700 font-medium mb-1">Picture Verification</label>
+            <p className="text-sm text-gray-600 mb-2">
+              <strong>DK:</strong> 
+              1. Verificerede profiler vises øverst på siden. <br />
+              2. Tag et helkropsbillede i undertøj med et papir foran dig, hvor dagens dato står skrevet. <br />
+              3. Vi gennemgår og godkender dine billeder og din profil. <br />
+              4. Dette billede vil ikke blive vist online.
+            </p>
+            <p className="text-sm text-gray-600 mb-4">
+              <strong>EN:</strong> 
+              1. Verified profiles are always shown at the top of the website. <br />
+              2. Take a full-body photo in underwear while holding a paper with today’s date written on it. <br />
+              3. We will review and approve your photos and profile. <br />
+              4. This image will not be displayed online.
+            </p>
+            <input
+              type="file"
+              accept="image/*"
+              onChange={(e) => {
+                const file = e.target.files?.[0];
+                if (file) {
+                  setVerificationImage(file);
+                }
+              }}
+              className="w-full p-2 border border-gray-300 rounded"
+            />
+          </div>
+
+          <div className="mb-6">
+            <label className="block text-gray-700 font-medium mb-1">Upload Identity Document</label>
+            <p className="text-sm text-gray-600 mb-2">
+              <strong>DK:</strong> Upload et billed-ID for at bekræfte, at du er over 21 år. Legitimationen skal indeholde dit billede og din fødselsdato. Dit ID vil ikke blive vist online og opbevares sikkert.
+            </p>
+            <p className="text-sm text-gray-600 mb-4">
+              <strong>EN:</strong> Upload a photo ID to confirm you are over 21 years old. The document must include your picture and date of birth. Your ID will not be shown online and will be stored securely.
+            </p>
+            <input
+              type="file"
+              accept="image/*"
+              onChange={(e) => {
+                const file = e.target.files?.[0];
+                if (file) {
+                  setIdentityImage(file);
+                }
+              }}
+              className="w-full p-2 border border-gray-300 rounded"
+            />
+          </div>
+
 
           <button
             type="submit"
