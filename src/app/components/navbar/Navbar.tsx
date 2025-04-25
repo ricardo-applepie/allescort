@@ -55,6 +55,7 @@ export default function Navbar(props: NavbarProps) {
       searchString = searchString + `?searchTerm=${value}`;
     }
     console.log(searchString, "searchString");
+    setValue('');
     router.push(searchString);
   };
 
