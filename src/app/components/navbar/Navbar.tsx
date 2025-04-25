@@ -7,6 +7,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import LoginIcon from '@mui/icons-material/Login';
 import SearchIcon from '@mui/icons-material/Search';
 import { useRouter } from 'next/navigation';
+import PersonIcon from '@mui/icons-material/Person';
 
 import { useDispatch, useSelector } from "react-redux";
 import { setMenuState } from "@/redux/menu/menu";
@@ -75,24 +76,26 @@ export default function Navbar(props: NavbarProps) {
               </div>
           </form>
           <div className="block">
-            <Link className="mr-3 btn--outline btn--default hidden" href={"/newAd"}>Post ad </Link>
+            <Link className="mr-2 btn--outline btn--default hidden" href={"/newAd"}>Post ad </Link>
             {!signedIn && (
-              <Link className="mr-3 btn--outline btn--default" href={"/login"}>Login </Link>
+              <Link className="mr-2 btn--outline btn--default" href={"/login"}>Login </Link>
             )}
             {signedIn && (
               <>
               
                 <Link 
-                  className="mr-3 btn--outline btn--default"
+                  className="mr-2 btn--outline btn--default"
                   href={"/dashboard"}
                 >
-                  Profile 
+                  <span className="md:hidden"><PersonIcon /></span>
+                  <span className="hidden" >Profile</span>  
                 </Link>
                 <span 
-                  className="mr-3 btn--bg btn--default"
+                  className="mr-2 btn--bg btn--default"
                   onClick={logout}
-                >
-                  Logout 
+                > 
+                  {/* <span className="md:hidden"><PersonIcon /></span> */}
+                  <span>Logout</span> 
                 </span>
               </>
             )}
