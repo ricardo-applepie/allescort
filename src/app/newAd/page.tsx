@@ -111,11 +111,11 @@ const formFields = [
       },
       // Add Region selection field here
       {
-        description: "Region",
-        name: "ad_country",
+        description: "Work area / area",
+        name: "area",
         require: true,
         type: "select",
-        placeholder: "Select Region",
+        placeholder: "Select Area",
         options: [
           "København", "Sjælland", "Sydsjælland", "Nordsjælland", "Odense", 
           "Fyn", "Aarhus", "Aalborg", "Jylland", "Esbjerg", "Randers", 
