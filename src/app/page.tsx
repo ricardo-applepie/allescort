@@ -53,7 +53,9 @@ export default async function Home() {
       {bookedSpotAds && (
         <BookASpot bookedSpotAds={bookedSpotAds}/>
       )}
-
+      <h2 className="text-3xl font-bold text-center text-white bg-gradient-to-r from-[rgb(185,28,28)] via-red-600 to-red-800 py-3 px-6 rounded-lg mt-10 md:mt-9 mb-4 md:mb-0 transform transition-all duration-700 hover:scale-105 animate-bounce">
+        Velkommen til Alle escort
+      </h2>
       <section className="section">
         <EscortCards escorts={escorts} />
       </section>

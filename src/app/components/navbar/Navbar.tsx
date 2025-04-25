@@ -137,7 +137,7 @@ export default function Navbar(props: NavbarProps) {
             </span>
 
           </div>
-          <form className="navbar__search mobile mr-2 mobile" onSubmit={handleSubmit}>
+          <form className="navbar__search mobile md:mr-2 mobile" onSubmit={handleSubmit}>
             <div className="flex position-relative">
               <input className="navbar__input placeholder:text-[#fff]" placeholder="Search here" value={value} onChange={handleChange} />
               <button className="navbar__search-icon" type="submit">

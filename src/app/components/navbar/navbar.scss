@@ -28,8 +28,12 @@
     background-color: $primary;
     background-clip: padding-box;
     border: 1px solid transparent;
-    border-top-left-radius: 100px;
-    border-bottom-left-radius: 100px;    
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    @media screen and (min-width: 1024px) {
+      border-top-left-radius: 100px;
+      border-bottom-left-radius: 100px;
+    }
     height: unset;
     ::placeholder {
       color: $white;
@@ -39,6 +43,13 @@
     position: relative;
     width: 50px;
     background-color: $primary;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    @media screen and (min-width: 1024px) {
+      border-top-right-radius: 100px;
+      border-bottom-right-radius: 100px;
+    }
+      
     cursor: pointer;
     svg {
       position: absolute;
