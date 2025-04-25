@@ -58,7 +58,7 @@ const SlideInMenu = () => {
               
               <li className="mb-4 flex items-center space-x-2">
                 <AccountCircle className="text-gray-600" />
-                <Link href="/profile" className="text-lg text-gray-800">My Profile</Link>
+                <Link href="/dashboard" className="text-lg text-gray-800">My Profile</Link>
               </li>
               
               <li className="mb-4 flex items-center space-x-2">
