@@ -12,6 +12,7 @@ import './form.scss';
 import { useDispatch } from 'react-redux';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import { auth, db } from "../../../lib/firebase";
+import { setAuthState } from '@/redux/auth/auth';
 
 type FormType = "login" | "signup";
 
@@ -79,6 +80,7 @@ export default function Form(props: FormProps) {
     try {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
+      dispatch(setAuthState(user));
       // You can fetch additional profile info from Firestore here if needed
       router.push('/boostProfile');
     } catch (error: any) {

@@ -9,6 +9,7 @@ import Link from 'next/link'; // Using 'Link' for navigation
 import { signOut } from 'firebase/auth'; // Import signOut from firebase/auth
 import { getAuth } from 'firebase/auth'; // Import getAuth from firebase/auth
 import { auth } from "@/lib/firebase"; // Ensure this import is correct
+import { clearAuthState } from '@/redux/auth/auth';
 
 const SlideInMenu = () => {
   const { isOpen } = useSelector((state) => state.menuState);
@@ -37,8 +38,9 @@ const SlideInMenu = () => {
   const logout = async () => {
     try {
       const authInstance = getAuth(); // Get Firebase Auth instance
+      dispatch(clearAuthState())
       await signOut(authInstance); // Use the Firebase Auth instance to sign out
-      toggleMenu()
+      toggleMenu();
     } catch (error) {
       console.error("❌ Logout error:", error);
     }
@@ -75,26 +77,31 @@ const SlideInMenu = () => {
                   Home
                 </span>
               </li>
-              
-              <li className="mb-4 flex items-center space-x-2">
-                <AccountCircle className="text-gray-600" />
-                <Link href="/dashboard" className="text-lg text-gray-800">My Profile</Link>
-              </li>
-              
-              <li className="mb-4 flex items-center space-x-2">
+              {hasUser && (
+                <li className="mb-4 flex items-center space-x-2">
+                  <AccountCircle className="text-gray-600" />
+                  <Link onClick={toggleMenu} href="/dashboard" className="text-lg text-gray-800">My Profile</Link>
+                </li>
+              )}
+
+              {hasUser && (
+               <li className="mb-4 flex items-center space-x-2">
                 <HelpOutline className="text-gray-600" />
-                <Link href="/help" className="text-lg text-gray-800">Help & Support</Link>
-              </li>
-              
-              <li className="mb-4 flex items-center space-x-2">
-                <Settings className="text-gray-600" />
-                <Link href="/settings" className="text-lg text-gray-800">Settings</Link>
-              </li>
-              
+                <Link onClick={toggleMenu} href="/boostProfile" className="text-lg text-gray-800">Boost Profile</Link>
+               </li>
+              )}
+    
+              {hasUser && (
+                <li className="mb-4 flex items-center space-x-2">
+                  <Settings className="text-gray-600" />
+                  <Link onClick={toggleMenu} href="/newAd" className="text-lg text-gray-800">Post New Ad</Link>
+                </li>
+              )}
+    
               <li className="mb-4 flex items-center space-x-2">
                 <ExitToApp className="text-gray-600" />
                 {!hasUser ?  (
-                  <Link href="/login" className="text-lg text-gray-800">Login</Link>
+                  <Link onClick={toggleMenu} href="/login" className="text-lg text-gray-800">Login</Link>
                 ) :  (
                   <span onClick={logout} className="text-lg text-gray-800">Logout</span>
                 )}

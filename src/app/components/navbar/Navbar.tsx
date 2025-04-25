@@ -14,7 +14,7 @@ import { setMenuState } from "@/redux/menu/menu";
 import { useEffect, useState } from "react";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "@/lib/firebase";
-import { setAuthState } from "@/redux/auth/auth";
+import { clearAuthState, setAuthState } from "@/redux/auth/auth";
 
 interface NavbarProps {
   type?: string;
@@ -33,6 +33,7 @@ export default function Navbar(props: NavbarProps) {
     try {
       await signOut(auth);
       setSignedIn(false);
+      dispatch(clearAuthState());
       router.push("/")
     } catch (error) {
       console.error("❌ Logout error:", error);
