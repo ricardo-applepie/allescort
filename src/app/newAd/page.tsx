@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import { useState } from "react";
 import Select from "../components/Select/Select";
@@ -108,6 +108,20 @@ const formFields = [
         type: "text",
         placeholder: "Enter Postal Code",
       },
+      // Add Region selection field here
+      {
+        description: "Region",
+        name: "ad_country",
+        require: true,
+        type: "select",
+        placeholder: "Select Region",
+        options: [
+          "København", "Sjælland", "Sydsjælland", "Nordsjælland", "Odense", 
+          "Fyn", "Aarhus", "Aalborg", "Jylland", "Esbjerg", "Randers", 
+          "Kolding", "Horsens", "Vejle", "Roskilde", "Herning", "Norge-Oslo", 
+          "Sverige", "Flensburg", "Slagelse"
+        ],
+      },
     ],
   },
   {
@@ -162,7 +176,7 @@ export default function DashBoard() {
         ...formData,
         adId: newAdId.toString(),
         imageUrls,
-        createdAt: Timestamp.now(), 
+        createdAt: Timestamp.now(),
         boostedAt: null,
         bookASpot: null
       });
