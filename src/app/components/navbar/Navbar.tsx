@@ -118,7 +118,12 @@ export default function Navbar(props: NavbarProps) {
               <option value="Flensburg">Flensburg</option>
               <option value="Slagelse">Slagelse</option>
             </select>
-            <Link className="mr-2 btn--outline btn--default hidden" href={"/newAd"}>Post ad</Link>
+            {signedIn && (
+              <Link className="mr-2 btn--outline btn--default hidden" href={"/newAd"}>Post ad</Link>
+            )}
+            {!signedIn && (
+              <Link className="mr-2 btn--outline btn--default hidden" href={"/signup"}>signup</Link>
+            )}
             {!signedIn && (
               <Link className="mr-2 btn--outline btn--default" href={"/login"}>Login</Link>
             )}
