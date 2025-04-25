@@ -53,7 +53,12 @@ const SlideInMenu = () => {
             <ul>
               <li className="mb-4 flex items-center space-x-2">
                 <Home className="text-gray-600" />
-                <Link href="/home" className="text-lg text-gray-800">Home</Link>
+                <span 
+                  className="text-lg text-gray-800"
+                  onClick={toggleMenu}
+                >
+                  Home
+                </span>
               </li>
               
               <li className="mb-4 flex items-center space-x-2">
