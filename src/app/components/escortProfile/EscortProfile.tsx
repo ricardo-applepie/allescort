@@ -16,7 +16,7 @@ export default function EscortProfile({ ad }: any) {
         <h1 className="text-4xl font-extrabold text-gray-900 mb-3">
           {adTitle}
         </h1>
-        <SimpleSlider images={images} />
+        {/* <SimpleSlider images={images} /> */}
       </section>
 
       <section className="grid grid-cols-1 md:grid-cols-2 gap-8">
