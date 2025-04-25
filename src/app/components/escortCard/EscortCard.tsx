@@ -42,7 +42,7 @@ const EscortCard = ({ escort, escortIndex }: any) => {
               {escort?.description}
             </p>
           </Link>
-          <div className=" btn--default text-sm mt-3 text-red-700 font-semibold">
+          <div className="flex items-center btn--default text-sm mt-3 text-red-700 font-semibold">
             <a 
               className="whatsapp mr-2"
               href={`https://api.whatsapp.com/send?phone=${escort?.phone}&text=Hi, I have seen your profile on Alle escort`} 
@@ -50,7 +50,7 @@ const EscortCard = ({ escort, escortIndex }: any) => {
             >
               <WhatsAppIcon />
             </a>
-            <span>
+            <span className="text-2xl pt-2">
               {escort?.phone} 
             </span> 
       </div>
