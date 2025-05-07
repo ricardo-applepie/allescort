@@ -47,5 +47,8 @@
   "browser": {
     "fs": false,
     "child_process": false
+  },
+  "engines": {
+    "node": ">=20.0.0"
   }
 }
